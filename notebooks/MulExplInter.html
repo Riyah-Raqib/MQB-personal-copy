@@ -16,45 +16,39 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=3943d584" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=01a0bdc2" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/togglebutton.js?v=3e7854f7"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -70,7 +64,6 @@
     <link rel="prev" title="Linear Models: Multiple explanatory variables" href="MulExpl.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -86,8 +79,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -95,6 +99,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -102,8 +107,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -119,8 +124,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -150,17 +154,21 @@
     
     
     <img src="../_static/logo.png" class="logo__image only-light" alt="TheMulQuaBio - Home"/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="TheMulQuaBio - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="TheMulQuaBio - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -209,7 +217,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Data Analyses and Statistics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="glm.html">Generalised Linear Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ModelFitting-NLLS.html">Model Fitting using Non-linear Least-squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NLLS.html">Model Fitting using Non-linear Least-squares</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -375,16 +383,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -436,7 +452,7 @@
 <li><p><strong>Model 1</strong>: Is mammalian genome size predicted by interactions between trophic level and whether species are ground dwelling?</p></li>
 <li><p><strong>ANCOVA</strong>: Is body size in Odonata predicted by interactions between genome size and taxonomic suborder?</p></li>
 </ul>
-<p>So far, we have only looked at the independent effects of variables. For example, in the trophic level and ground dwelling model from <a class="reference internal" href="#16-MulExpl.ipynb"><span class="xref myst">the first multiple explanatory variables chapter</span></a>, we only looked for specific differences for being a omnivore <em>or</em> being ground dwelling, not for being
+<p>So far, we have only looked at the independent effects of variables. For example, in the trophic level and ground dwelling model from <a class="reference internal" href="MulExpl.html"><span class="std std-doc">the first multiple explanatory variables chapter</span></a>, we only looked for specific differences for being a omnivore <em>or</em> being ground dwelling, not for being
 specifically a <em>ground dwelling omnivore</em>. These independent effects of a variable are known as <em>main effects</em> and the effects of combinations of variables acting together are known as <em>interactions</em> — they describe how the variables <em>interact</em>.</p>
 <section id="chapter-aims">
 <h3>Chapter aims<a class="headerlink" href="#chapter-aims" title="Link to this heading">#</a></h3>
@@ -471,7 +487,7 @@ specifically a <em>ground dwelling omnivore</em>. These independent effects of a
 </div>
 </div>
 <p>If <code class="docutils literal notranslate"><span class="pre">mammals.Rdata</span></code> is missing, just import the data again using <code class="docutils literal notranslate"><span class="pre">read.csv</span></code>. You will then have to add the log C Value column to the imported data frame again.</p>
-<p>Let’s refit the model from <a class="reference internal" href="#16-MulExpl.ipynb"><span class="xref myst">the first multiple explanatory variables chapter</span></a>, but including the interaction between trophic level and ground dwelling. We’ll immediately check the model is appropriate:</p>
+<p>Let’s refit the model from <a class="reference internal" href="MulExpl.html"><span class="std std-doc">the first multiple explanatory variables chapter</span></a>, but including the interaction between trophic level and ground dwelling. We’ll immediately check the model is appropriate:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lm</span><span class="p">(</span><span class="n">logCvalue</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">TrophicLevel</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">GroundDwelling</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="o">=</span><span class="w"> </span><span class="n">mammals</span><span class="p">)</span>
@@ -507,11 +523,11 @@ specifically a <em>ground dwelling omnivore</em>. These independent effects of a
 </table>
 </div></div>
 </div>
-<p>Compared to the model from <a class="reference internal" href="#16-MulExpl.ipynb"><span class="xref myst">the first multiple explanatory variables chapter</span></a>, there is an extra line at the bottom. The top two are the same and show that trophic level and ground dwelling both have independent main effects. The extra line
+<p>Compared to the model from <a class="reference internal" href="MulExpl.html"><span class="std std-doc">the first multiple explanatory variables chapter</span></a>, there is an extra line at the bottom. The top two are the same and show that trophic level and ground dwelling both have independent main effects. The extra line
 shows that there is also an interaction between the two. It doesn’t explain a huge amount of variation, about half as much as trophic level, but it is significant.</p>
 <p>Again, we can calculate the <span class="math notranslate nohighlight">\(r^2\)</span> for the model:</p>
 <p><span class="math notranslate nohighlight">\(\frac{0.81 + 2.75 + 0.43}{0.81+2.75+0.43+12.77} = 0.238\)</span></p>
-<p>The model from <a class="reference internal" href="#16-MulExpl.ipynb"><span class="xref myst">the first multiple explanatory variables chapter</span></a> without the interaction had an <span class="math notranslate nohighlight">\(r^2 = 0.212\)</span> — our new
+<p>The model from <a class="reference internal" href="MulExpl.html"><span class="std std-doc">the first multiple explanatory variables chapter</span></a> without the interaction had an <span class="math notranslate nohighlight">\(r^2 = 0.212\)</span> — our new
 model explains 2.6% more of the variation in the data.</p>
 <p>The summary table is as follows:</p>
 <div class="cell docutils container">
@@ -561,7 +577,7 @@ F-statistic: 15.81 on 5 and 253 DF,  p-value: 1.504e-13
 <li><p>One difference for being ground dwelling</p></li>
 <li><p>Two new differences that give specific differences for ground dwelling herbivores and omnivores (the interaction effects).</p></li>
 </ol>
-<p>The first four lines, as in the model from the <a class="reference internal" href="#15-anova.ipynb"><span class="xref myst">ANOVA chapter</span></a>, allow us to find the predicted values for each group <em>if the size of the differences did not vary between levels because of the interaction effects</em>. That is, this part of the model only includes a single difference, between ground and non-ground species, which has to be the same for each trophic group because it ignores interactions between trophic level and ground / non-ground-dwelling identity of each species. The last two lines then give the estimated coefficients associated with the interaction terms, and allow cause the size of differences to vary between levels because of the further effects of interactions.</p>
+<p>The first four lines, as in the model from the <a class="reference internal" href="anova.html"><span class="std std-doc">ANOVA chapter</span></a>, allow us to find the predicted values for each group <em>if the size of the differences did not vary between levels because of the interaction effects</em>. That is, this part of the model only includes a single difference, between ground and non-ground species, which has to be the same for each trophic group because it ignores interactions between trophic level and ground / non-ground-dwelling identity of each species. The last two lines then give the estimated coefficients associated with the interaction terms, and allow cause the size of differences to vary between levels because of the further effects of interactions.</p>
 <p>The table below show how the fitted coefficients in the summary output above combine to give the predictions for each group combination, with those two new lines show in red:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -601,7 +617,7 @@ variance in the data.</p>
 <p><span class="math notranslate nohighlight">\(\star\)</span> Copy the code above into your script and run the model.</p>
 <p>Make sure you understand the output!</p>
 <p>Just to make sure the sums above are correct, we’ll use the same code as
-in <a class="reference internal" href="#16-MulExpl.ipynb"><span class="xref myst">the first multiple explanatory variables chapter</span></a> to get R to calculate predictions for us, similar to the way we did <a class="reference internal" href="#16-MulExpl.ipynb"><span class="xref myst">before</span></a>:</p>
+in <a class="reference internal" href="MulExpl.html"><span class="std std-doc">the first multiple explanatory variables chapter</span></a> to get R to calculate predictions for us, similar to the way we did <a class="reference internal" href="MulExpl.html"><span class="std std-doc">before</span></a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># a data frame of combinations of variables</span>
@@ -654,14 +670,14 @@ in <a class="reference internal" href="#16-MulExpl.ipynb"><span class="xref myst
 </div>
 </div>
 <p><span class="math notranslate nohighlight">\(\star\)</span> Include and run the code for gererating these predictions in your script.</p>
-<p>If we plot these data points onto the barplot from <a class="reference internal" href="#16-MulExpl.ipynb"><span class="xref myst">the first multiple explanatory variables chapter</span></a>, they now lie exactly on the mean values, because we’ve allowed for interactions. The triangle on this plot shows the predictions for ground dwelling omnivores from the main effects (<span class="math notranslate nohighlight">\(0.96 + 0.23  + 0.25 = 1.44\)</span>), the interaction of <span class="math notranslate nohighlight">\(-0.15\)</span> pushes the prediction back down.</p>
+<p>If we plot these data points onto the barplot from <a class="reference internal" href="MulExpl.html"><span class="std std-doc">the first multiple explanatory variables chapter</span></a>, they now lie exactly on the mean values, because we’ve allowed for interactions. The triangle on this plot shows the predictions for ground dwelling omnivores from the main effects (<span class="math notranslate nohighlight">\(0.96 + 0.23  + 0.25 = 1.44\)</span>), the interaction of <span class="math notranslate nohighlight">\(-0.15\)</span> pushes the prediction back down.</p>
 <p><img alt="image" src="../_images/predPlot.svg" /></p>
 </section>
 <section id="model-2-ancova-body-weight-in-odonata">
 <h2>Model 2 (ANCOVA): Body Weight in Odonata<a class="headerlink" href="#model-2-ancova-body-weight-in-odonata" title="Link to this heading">#</a></h2>
-<p>We’ll go all the way back to the regression analyses from the <a class="reference internal" href="#14-regress.ipynb"><span class="xref myst">Regression chapter</span></a>. Remember that we fitted two separate regression lines to the data for damselflies and dragonflies. We’ll now use an interaction to fit these in a single model. This kind of linear model — with a mixture of continuous variables and factors — is often called an <em>analysis of covariance</em>, or ANCOVA. That is, ANCOVA is a type of linear model that blends ANOVA and regression. ANCOVA evaluates whether population means of a dependent variable are equal across levels of a categorical independent variable, while statistically controlling for the effects of other continuous variables that are not of primary interest, known as covariates.</p>
+<p>We’ll go all the way back to the regression analyses from the <a class="reference internal" href="regress.html"><span class="std std-doc">Regression chapter</span></a>. Remember that we fitted two separate regression lines to the data for damselflies and dragonflies. We’ll now use an interaction to fit these in a single model. This kind of linear model — with a mixture of continuous variables and factors — is often called an <em>analysis of covariance</em>, or ANCOVA. That is, ANCOVA is a type of linear model that blends ANOVA and regression. ANCOVA evaluates whether population means of a dependent variable are equal across levels of a categorical independent variable, while statistically controlling for the effects of other continuous variables that are not of primary interest, known as covariates.</p>
 <p><em>Thus, ANCOVA is a linear model with one categorical and one or more continuous predictors</em>.</p>
-<p>We will use the odonates data that we have worked with <a class="reference internal" href="#12-ExpDesign.ipynb"><span class="xref myst">before</span></a>.</p>
+<p>We will use the odonates data that we have worked with <a class="reference internal" href="ExpDesign.html"><span class="std std-doc">before</span></a>.</p>
 <p><span class="math notranslate nohighlight">\(\star\)</span> First load the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -679,7 +695,7 @@ in <a class="reference internal" href="#16-MulExpl.ipynb"><span class="xref myst
 </div>
 </div>
 </div>
-<p>The models we fitted <a class="reference internal" href="#12-ExpDesign.ipynb"><span class="xref myst">before</span></a> looked like this:</p>
+<p>The models we fitted <a class="reference internal" href="ExpDesign.html"><span class="std std-doc">before</span></a> looked like this:</p>
 <p><img alt="image" src="../_images/dragonData.svg" /></p>
 <p>We can now fit the model of body weight as a function of both genome size and suborder:</p>
 <div class="cell docutils container">
@@ -937,8 +953,7 @@ F-statistic:  96.5 on 3 and 94 DF,  p-value: &lt; 2.2e-16
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1002,8 +1017,8 @@ By TheMulQuaBio collective!
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

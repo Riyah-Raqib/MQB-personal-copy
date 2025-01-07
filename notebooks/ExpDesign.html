@@ -16,45 +16,39 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=3943d584" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=01a0bdc2" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/togglebutton.js?v=3e7854f7"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -70,7 +64,6 @@
     <link rel="prev" title="Data Management and Visualization" href="Data_R.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -86,8 +79,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -95,6 +99,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -102,8 +107,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -119,8 +124,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -150,17 +154,21 @@
     
     
     <img src="../_static/logo.png" class="logo__image only-light" alt="TheMulQuaBio - Home"/>
-    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="TheMulQuaBio - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="TheMulQuaBio - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -209,7 +217,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced Data Analyses and Statistics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="glm.html">Generalised Linear Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ModelFitting-NLLS.html">Model Fitting using Non-linear Least-squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NLLS.html">Model Fitting using Non-linear Least-squares</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -375,16 +383,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -551,7 +567,7 @@
 <li><p><strong>Continuous numeric</strong>: Data that can take decimal values (real numbers) such as human height or weight. These may be unbounded (any value between negative infinity to positive infinity), or bounded (e.g., between or zero and some upper positive number) like human weight. This is the <code class="docutils literal notranslate"><span class="pre">numeric</span></code> or <code class="docutils literal notranslate"><span class="pre">real</span></code> data type in R.</p></li>
 <li><p><strong>Discrete numeric</strong>: Integer (whole) numbers such as counts of individuals in a population, e.g., The number of bacteria in a ml of pond water. This is the <code class="docutils literal notranslate"><span class="pre">int</span></code> data type in R.</p></li>
 <li><p><strong>Percentage (proportion)</strong>: A particular kind of numeric data that is strictly bounded between 0 and 100. The fact that you can never get samples of percentages that exceed these bounds makes such data tricky to analyse. This also falls under the <code class="docutils literal notranslate"><span class="pre">numeric</span></code> or <code class="docutils literal notranslate"><span class="pre">real</span></code> data type in R.</p></li>
-<li><p><strong>Categorical</strong>: Consisting of a fixed number of discrete categories. These are typically stored as a <em>factor</em> in R, with the categories stored as <em>levels</em> in character (string) data type format. For example, the factor “Type.of.feeding.interaction” from the predator-prey dataset you have <a class="reference internal" href="#08-Data_R.ipynb#Basic-plotting-commands"><span class="xref myst">used previously</span></a> had five levels: “insectivorous”, “piscivorous”, “planktivorous”, “predacious”, and “predacious/piscivorous”.</p></li>
+<li><p><strong>Categorical</strong>: Consisting of a fixed number of discrete categories. These are typically stored as a <em>factor</em> in R, with the categories stored as <em>levels</em> in character (string) data type format. For example, the factor “Type.of.feeding.interaction” from the predator-prey dataset you have <a class="reference internal" href="Data_R.html#Basic-plotting-commands"><span class="std std-ref">used previously</span></a> had five levels: “insectivorous”, “piscivorous”, “planktivorous”, “predacious”, and “predacious/piscivorous”.</p></li>
 <li><p><strong>Binary (presence/absence)</strong>: A special type of categorical data are binary, where only two categories/states/values are possible: (1, 0) (or “present”, “absent”) (e.g., a disease symptom). These may be stored as integer, character, or boolean (<code class="docutils literal notranslate"><span class="pre">TRUE</span></code>/<code class="docutils literal notranslate"><span class="pre">FALSE</span></code>) in R.</p></li>
 </ul>
 <p>While designing experiments or exploring data, you need to keep in mind that each data type will often be best-represented by a particular <em>statistical distribution</em>. For example, continuous numeric data are <em>often</em> normally distributed. On the other hand, count data are likely to be distributed according to the Poisson distribution.</p>
@@ -897,7 +913,7 @@ binomial for each species in the table. The remaining columns are measurements o
 <p><code class="docutils literal notranslate"><span class="pre">Genome</span> <span class="pre">Size</span> <span class="pre">~</span> <span class="pre">Suborder</span></code></p>
 <p>This formula tells R to model genome size ‘as a function of’ (<code class="docutils literal notranslate"><span class="pre">~</span></code>) the suborders of Odonata. When using this syntax in a <code class="docutils literal notranslate"><span class="pre">boxplot</span></code> function, the result will be to plot genome size as a function of the suborders.</p>
 <p>##’ Compare distribution of the variable across levels of a factor</p>
-<p>Although looking at the distribution of variables is a good first step, we often want to compare distributions. In this case, we might want to know how genome size varies between dragonflies and damselflies. The first way we will look at is using boxplots — these show the median and the 25% and 75% quantiles as a box, with whiskers extending to the minimum and maximum. More extreme outliers are plotted independently as points. The <code class="docutils literal notranslate"><span class="pre">plot</span></code> function in R automatically generates a boxplot when the explanatory variable is a factor (i.e., provided you have the necessary grouping columns deignated to be the <code class="docutils literal notranslate"><span class="pre">factor</span></code> class; review the variable types and data structures sections of <a class="reference internal" href="#07-R.ipynb"><span class="xref myst">the R Chapter</span></a> if this sounds like greek to you).</p>
+<p>Although looking at the distribution of variables is a good first step, we often want to compare distributions. In this case, we might want to know how genome size varies between dragonflies and damselflies. The first way we will look at is using boxplots — these show the median and the 25% and 75% quantiles as a box, with whiskers extending to the minimum and maximum. More extreme outliers are plotted independently as points. The <code class="docutils literal notranslate"><span class="pre">plot</span></code> function in R automatically generates a boxplot when the explanatory variable is a factor (i.e., provided you have the necessary grouping columns deignated to be the <code class="docutils literal notranslate"><span class="pre">factor</span></code> class; review the variable types and data structures sections of <a class="reference internal" href="R.html"><span class="std std-doc">the R Chapter</span></a> if this sounds like greek to you).</p>
 <p><span class="math notranslate nohighlight">\(\star\)</span> Go to block 5 of the script and run the first line, looking at genome size between the two suborders:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1036,7 +1052,7 @@ object in R — if you use <code class="docutils literal notranslate"><span clas
 <h2>Saving your results<a class="headerlink" href="#saving-your-results" title="Link to this heading">#</a></h2>
 <section id="saving-the-exploratory-graphics">
 <h3>Saving the exploratory graphics<a class="headerlink" href="#saving-the-exploratory-graphics" title="Link to this heading">#</a></h3>
-<p>The file ‘GenomeSize.pdf’ in the practical folder was created using the next block of code using the approach you <a class="reference internal" href="#08-Data_R.ipynb"><span class="xref myst">learned previously</span></a>. The function <code class="docutils literal notranslate"><span class="pre">pdf</span></code> opens a new empty pdf file which can then be used to plot graphs. You can set the width and the height of the page size in the pdf but note that this is set in <em>inches</em>. When you have finished creating a plot, the function <code class="docutils literal notranslate"><span class="pre">dev.off</span></code> closes the pdf file and makes it readable.</p>
+<p>The file ‘GenomeSize.pdf’ in the practical folder was created using the next block of code using the approach you <a class="reference internal" href="Data_R.html"><span class="std std-doc">learned previously</span></a>. The function <code class="docutils literal notranslate"><span class="pre">pdf</span></code> opens a new empty pdf file which can then be used to plot graphs. You can set the width and the height of the page size in the pdf but note that this is set in <em>inches</em>. When you have finished creating a plot, the function <code class="docutils literal notranslate"><span class="pre">dev.off</span></code> closes the pdf file and makes it readable.</p>
 <p><span class="math notranslate nohighlight">\(\star\)</span> Open ‘GenomeSize.pdf’ in a PDF reader. It uses the original colours and
 plot symbols. Close the file and then delete it from the folder.</p>
 <p><span class="math notranslate nohighlight">\(\star\)</span> Now go back to the script in R and select and run all the code in block (9)</p>
@@ -1113,8 +1129,7 @@ plot symbols. Close the file and then delete it from the folder.</p>
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1196,8 +1211,8 @@ By TheMulQuaBio collective!
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
