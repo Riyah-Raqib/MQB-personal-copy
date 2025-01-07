@@ -2,7 +2,6 @@ format: jb-book
 root: intro
 parts:
 - caption: Computing
-  # maxdepth: 2  # display ToC only upto two levels
   chapters:
   - file: notebooks/Unix
   - file: notebooks/ShellScripting
@@ -10,23 +9,34 @@ parts:
   - file: notebooks/LaTeX
   - file: notebooks/Python
   - file: notebooks/R
+
+- caption: Ecological & Evolutionary Modelling
+  chapters:
+  - file: intro-EnE_Modelling
+  - file: notebooks/TurbulentMarriage
+  - file: notebooks/MetabolicBasis
+  - file: notebooks/Populations
+  - file: notebooks/Interactions
+  - file: notebooks/Ecosystems
+  - file: notebooks/Space
+
 - caption: Maths for Biologists
   chapters:
   - file: mathscourse/lecture01/01_Making_mathematical_statements
   - file: mathscourse/lecture02/02_Describing_shapes_and_patterns
   - file: mathscourse/lecture03/03_Analysing_change,_one_step_at_a_time
   - file: mathscourse/lecture04/04_From_table_arrangements_to_powerful_tools
-  - file: mathscourse/lecture05/05_From_table_arrangements_to_powerful_tools_part2.ipynb
-  - file: mathscourse/lecture06/06_Analysing_change_continuously.ipynb
-  - file: mathscourse/lecture07/07_Analysing_change_continuously_part2.ipynb
-  - file: mathscourse/lecture08/08_Calculating_accumulated_change.ipynb
-  - file: mathscourse/tutorials/lecture01/Tutorial_01.ipynb
-  - file: mathscourse/tutorials/lecture05/Tutorial_05.ipynb
-  - file: mathscourse/tutorials/lecture06/Tutorial_06.ipynb
+  - file: mathscourse/lecture05/05_From_table_arrangements_to_powerful_tools_part2
+  - file: mathscourse/lecture06/06_Analysing_change_continuously
+  - file: mathscourse/lecture07/07_Analysing_change_continuously_part2
+  - file: mathscourse/lecture08/08_Calculating_accumulated_change
+  - file: mathscourse/tutorials/lecture01/Tutorial_01
+  - file: mathscourse/tutorials/lecture05/Tutorial_05
+  - file: mathscourse/tutorials/lecture06/Tutorial_06
 
 - caption: Basic Data Analyses and Statistics
   chapters:
-  - file: Stats-Intro
+  - file: intro-Stats
   - file: notebooks/Data_R
   - file: notebooks/ExpDesign
   - file: notebooks/t_F_tests

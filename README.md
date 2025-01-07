@@ -23,7 +23,7 @@ This is the current MQB project structure:
 │   ├── references.bib
 │   ├── results
 │   ├── _static
-│   ├── Stats-Intro.md
+│   ├── intro-Stats.md
 │   └── _toc.yml
 ├── LICENSE
 ├── MQB.code-workspace
@@ -206,6 +206,16 @@ We welcome and recognize all contributions. You can see a list of current contri
 
 ## Credits
 
-* This project is created using the excellent open source [Jupyter Book project](https://jupyterbook.org/), initiated using [executablebooks/cookiecutter-jupyter-book template](https://github.com/executablebooks/cookiecutter-jupyter-book).
-* The computing sections were originally inspired by, and many of the materials are based on Stefano Allesina's excellent notes back when Samraat was a Postdoc in the Allesina Lab. Check out [the book](https://computingskillsforbiologists.com/)! 
-* Most of the chapters under the Data Analysis and Basic Statistics section were originally written by David Orme (<d.orme@imperial.ac.uk>).
+* This project is created using the excellent open source [Jupyter Book
+project](https://jupyterbook.org/), initiated using
+[executablebooks/cookiecutter-jupyter-book
+template](https://github.com/executablebooks/cookiecutter-jupyter-book). 
+* Much of this book's content has emerged and evolved over the years from
+  undergraduate and postgraduate teaching in various past and present courses at
+  the Department of Life Sciences, Imperial College London.
+* Most of The computing sections were originally inspired by, and many of the
+  materials are based on Stefano Allesina's excellent notes back when Samraat
+  was a Postdoc in the Allesina Lab. Check out [the
+  book](https://computingskillsforbiologists.com/)! 
+* Most of the chapters under the Data Analysis and Basic Statistics section were
+  originally written by David Orme (<d.orme@imperial.ac.uk>).

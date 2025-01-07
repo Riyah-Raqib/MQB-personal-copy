@@ -1,6 +1,6 @@
-# TMQB Coursework Assessment
+# MQB Coursework Assessment
 
-Here are the guidelines for assessment of any coursework based on the TMQB materials.
+Here are the guidelines for assessment of any coursework based on the MQB materials.
 
 Assessment may be through computer-based tests, or individual or group/team-based practicals.
 
