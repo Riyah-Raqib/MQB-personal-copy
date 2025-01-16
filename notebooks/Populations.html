@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=3943d584" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -45,13 +45,10 @@
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/togglebutton.js?v=3e7854f7"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -195,7 +192,6 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="MetabolicBasis.html">The Metabolic Basis of Ecology and Evolutionary dynamics</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Single Populations</a></li>
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Data Analyses and Statistics</span></p>
 <ul class="nav bd-sidenav">
@@ -420,8 +416,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Single Populations</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-vs-continuous-population-growth-in-microbes">Discrete vs. Continuous Population Growth in Microbes</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-geometric-growth">Discrete (Geometric) Growth</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-model">Basic Model</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-synchronous-cell-division">Example: Synchronous Cell Division</a></li>
@@ -439,13 +433,10 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-logistic-growth-with-temperature-size-dependence">Continuous Logistic Growth with Temperature &amp; Size Dependence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references-key-theoretical-empirical-foundations">References (Key Theoretical/Empirical Foundations)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -475,18 +466,16 @@ document.write(`
   * Stage and age structured populations
     * Stage- vs Age-structured models
     * IPMs
-  * Applications/Examples --></section>
-<section class="tex2jax_ignore mathjax_ignore" id="discrete-vs-continuous-population-growth-in-microbes">
-<h1>Discrete vs. Continuous Population Growth in Microbes<a class="headerlink" href="#discrete-vs-continuous-population-growth-in-microbes" title="Link to this heading">#</a></h1>
-<p>Here, we will explore: Discrete growth (difference equations) vs. Continuous growth (differential equations), how cell division (inherently discrete) can be approximated by continuous models at large population sizes, and Simple ways to incorporate metabolic effects of temperature and cell size into these models.</p>
+  * Applications/Examples --><p>Here, we will exploreDiscrete growth (difference equations) vs. Continuous growth (differential equations), how cell division (inherently discrete) can be approximated by continuous models at large population sizes, and Simple ways to incorporate metabolic effects of temperature and cell size into these models. We will focus on microbes for the same reason we did so in the previous chapter.</p>
 <section id="discrete-geometric-growth">
 <h2>Discrete (Geometric) Growth<a class="headerlink" href="#discrete-geometric-growth" title="Link to this heading">#</a></h2>
 <p>Consider a microbial population that reproduces synchronously once per time step (e.g., once every 1 hour, or 1 day, etc.).</p>
 <section id="basic-model">
 <h3>Basic Model<a class="headerlink" href="#basic-model" title="Link to this heading">#</a></h3>
-<p>If <span class="math notranslate nohighlight">\(N_t\)</span> denotes the population at time (step) <span class="math notranslate nohighlight">\(t\)</span>, then a simple discrete growth model is:
-$<span class="math notranslate nohighlight">\( N_{t+1} = R \times N_t. \)</span>$
-Here:</p>
+<p>If <span class="math notranslate nohighlight">\(N_t\)</span> denotes the population at time (step) <span class="math notranslate nohighlight">\(t\)</span>, then a simple discrete growth model is:</p>
+<div class="math notranslate nohighlight">
+\[ N_{t+1} = R \times N_t. \]</div>
+<p>Here:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(R\)</span> is the multiplicative factor (<span class="math notranslate nohighlight">\(R &gt; 1\)</span> for growth, <span class="math notranslate nohighlight">\(R &lt; 1\)</span> for decay).</p></li>
 <li><p>Over <span class="math notranslate nohighlight">\(T\)</span> steps, <span class="math notranslate nohighlight">\(N_T = R^T \times N_0\)</span>.</p></li>
@@ -494,9 +483,10 @@ Here:</p>
 </section>
 <section id="example-synchronous-cell-division">
 <h3>Example: Synchronous Cell Division<a class="headerlink" href="#example-synchronous-cell-division" title="Link to this heading">#</a></h3>
-<p>Each microbial cell divides into two after a fixed time step. Then <span class="math notranslate nohighlight">\(R=2\)</span>. So,
-$<span class="math notranslate nohighlight">\( N_{t+1} = 2 N_t. \)</span>$
-In practice, real cells do not all divide at the exact same moment—division is somewhat stochastic. But if we look at average behavior, we might treat it as a discrete doubling event (especially in a simplified model).</p>
+<p>Each microbial cell divides into two after a fixed time step. Then <span class="math notranslate nohighlight">\(R=2\)</span>. So,</p>
+<div class="math notranslate nohighlight">
+\[ N_{t+1} = 2 N_t. \]</div>
+<p>In practice, real cells do not all divide at the exact same moment—division is somewhat stochastic. But if we look at average behavior, we might treat it as a discrete doubling event (especially in a simplified model).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -526,7 +516,7 @@ In practice, real cells do not all divide at the exact same moment—division is
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/67405eea5cfe894bee0d27d61dd9da753a6d1f7be9ea155c01b16482531f6670.png" src="../_images/67405eea5cfe894bee0d27d61dd9da753a6d1f7be9ea155c01b16482531f6670.png" />
+<img alt="../_images/eef8185b93e2dba6de06e418a53a34263fbce825dab103519e76b4fd8b6d8346.png" src="../_images/eef8185b93e2dba6de06e418a53a34263fbce825dab103519e76b4fd8b6d8346.png" />
 </div>
 </div>
 </section>
@@ -536,27 +526,31 @@ In practice, real cells do not all divide at the exact same moment—division is
 <p>In continuous models, we treat population growth as happening at every instant rather than in discrete steps.</p>
 <section id="exponential-growth">
 <h3>Exponential Growth<a class="headerlink" href="#exponential-growth" title="Link to this heading">#</a></h3>
-<p>A continuous model can be written as a differential equation:
-$<span class="math notranslate nohighlight">\(
+<p>A continuous model can be written as a differential equation:</p>
+<div class="math notranslate nohighlight">
+\[
     \frac{dN}{dt} = \mu N(t),
-\)</span><span class="math notranslate nohighlight">\(
-where \)</span>\mu<span class="math notranslate nohighlight">\( is the intrinsic growth rate (per unit time). The solution is:
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the intrinsic growth rate (per unit time). The solution is:</p>
+<div class="math notranslate nohighlight">
+\[
     N(t) = N(0)\, e^{\mu t}.
-\)</span><span class="math notranslate nohighlight">\(
-When interpreted at large population sizes, this model can approximate the effect of many asynchronous cell divisions happening randomly but with an average rate \)</span>\mu$.</p>
+\]</div>
+<p>When interpreted at large population sizes, this model can approximate the effect of many asynchronous cell divisions happening randomly but with an average rate <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 </section>
 <section id="relationship-to-discrete-growth">
 <h3>Relationship to Discrete Growth<a class="headerlink" href="#relationship-to-discrete-growth" title="Link to this heading">#</a></h3>
-<p>If in the discrete model <span class="math notranslate nohighlight">\(N_{t+1} = R N_t\)</span>, after <span class="math notranslate nohighlight">\(T\)</span> time steps, <span class="math notranslate nohighlight">\(N_T = R^T N_0\)</span>. Comparing with <span class="math notranslate nohighlight">\(N(t) = N_0 e^{\mu t}\)</span> for the continuous case, we often identify:
-$<span class="math notranslate nohighlight">\(
+<p>If in the discrete model <span class="math notranslate nohighlight">\(N_{t+1} = R N_t\)</span>, after <span class="math notranslate nohighlight">\(T\)</span> time steps, <span class="math notranslate nohighlight">\(N_T = R^T N_0\)</span>. Comparing with <span class="math notranslate nohighlight">\(N(t) = N_0 e^{\mu t}\)</span> for the continuous case, we often identify:</p>
+<div class="math notranslate nohighlight">
+\[
     R = e^{\mu \Delta t},
-\)</span><span class="math notranslate nohighlight">\(
-assuming each time step is \)</span>\Delta t<span class="math notranslate nohighlight">\(. So
-\)</span><span class="math notranslate nohighlight">\(
+\]</div>
+<p>assuming each time step is <span class="math notranslate nohighlight">\(\Delta t\)</span>. So</p>
+<div class="math notranslate nohighlight">
+\[
     \mu = \frac{1}{\Delta t} \ln(R).
-\)</span><span class="math notranslate nohighlight">\(
-Thus, discrete and continuous models are conceptually linked. As \)</span>\Delta t\rightarrow 0$, discrete growth steps become more closely approximated by a continuous growth process.</p>
+\]</div>
+<p>Thus, discrete and continuous models are conceptually linked. As <span class="math notranslate nohighlight">\(\Delta t\rightarrow 0\)</span>, discrete growth steps become more closely approximated by a continuous growth process.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s compare discrete and continuous growth numerically.</span>
@@ -597,7 +591,7 @@ Thus, discrete and continuous models are conceptually linked. As \)</span>\Delta
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9c01f0dff2754550453e926c3ac7ec73eeb401b14efec59e8fd20218222ae78a.png" src="../_images/9c01f0dff2754550453e926c3ac7ec73eeb401b14efec59e8fd20218222ae78a.png" />
+<img alt="../_images/8d387354c249f5bbff5f23f3cd596f39e20632e6d317e800c58aead216024479.png" src="../_images/8d387354c249f5bbff5f23f3cd596f39e20632e6d317e800c58aead216024479.png" />
 </div>
 </div>
 </section>
@@ -606,11 +600,12 @@ Thus, discrete and continuous models are conceptually linked. As \)</span>\Delta
 <h2>Incorporating Metabolic Effects<a class="headerlink" href="#incorporating-metabolic-effects" title="Link to this heading">#</a></h2>
 <section id="temperature-dependence">
 <h3>Temperature Dependence<a class="headerlink" href="#temperature-dependence" title="Link to this heading">#</a></h3>
-<p>Enzymatic processes in the cell generally speed up with increasing temperature (until proteins denature at high <span class="math notranslate nohighlight">\(T\)</span>). For simplicity, we can model <span class="math notranslate nohighlight">\(\mu\)</span> (or <span class="math notranslate nohighlight">\(R\)</span>) via an Arrhenius‐type expression:
-$<span class="math notranslate nohighlight">\(
+<p>Enzymatic processes in the cell generally speed up with increasing temperature (until proteins denature at high <span class="math notranslate nohighlight">\(T\)</span>). For simplicity, we can model <span class="math notranslate nohighlight">\(\mu\)</span> (or <span class="math notranslate nohighlight">\(R\)</span>) via an Arrhenius‐type expression:</p>
+<div class="math notranslate nohighlight">
+\[
     \mu(T) = \mu_0 \exp\Bigl(-\frac{E}{k_B T}\Bigr),
-\)</span>$
-where:</p>
+\]</div>
+<p>where,</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(E\)</span> is an activation energy,</p></li>
 <li><p><span class="math notranslate nohighlight">\(k_B\)</span> is Boltzmann’s constant (or simply a scaling constant in some biological contexts),</p></li>
@@ -619,11 +614,12 @@ where:</p>
 </section>
 <section id="cellsize-scaling-mte">
 <h3>Cell‐Size Scaling (MTE)<a class="headerlink" href="#cellsize-scaling-mte" title="Link to this heading">#</a></h3>
-<p>From the Metabolic Theory of Ecology (MTE), we often assume metabolism (and hence growth rate) scales as <span class="math notranslate nohighlight">\(M^{-1/4}\)</span>, where <span class="math notranslate nohighlight">\(M\)</span> is cell mass. Thus,
-$<span class="math notranslate nohighlight">\(
+<p>From the Metabolic Theory of Ecology (MTE), we often assume metabolism (and hence growth rate) scales as <span class="math notranslate nohighlight">\(M^{-1/4}\)</span>, where <span class="math notranslate nohighlight">\(M\)</span> is cell mass. Thus,</p>
+<div class="math notranslate nohighlight">
+\[
     \mu(T,M) = \mu_0 M^{-1/4} \exp\Bigl(-\frac{E}{k_B T}\Bigr).
-\)</span><span class="math notranslate nohighlight">\(
-For microbes, we might treat \)</span>M$ as roughly constant (if cell size doesn’t change much), or we can incorporate cell growth in more advanced models.</p>
+\]</div>
+<p>For microbes, we might treat <span class="math notranslate nohighlight">\(M\)</span> as roughly constant (if cell size doesn’t change much), or we can incorporate cell growth in more advanced models.</p>
 </section>
 </section>
 <section id="continuous-logistic-growth-with-temperature-size-dependence">
@@ -652,56 +648,7 @@ For microbes, we might treat \)</span>M$ as roughly constant (if cell size doesn
 \,N
 \,\Bigl(1 - \tfrac{N}{K}\Bigr).
 \]</div>
-<!-- Below, we do a simple numerical integration of this logistic equation. --><div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Let&#39;s do a quick numerical simulation.</span>
-<span class="c1"># def dNdt(N, t, mu0, M, E, kB, T, K):</span>
-<span class="c1">#     &quot;&quot;&quot;Right-hand side of logistic equation with temperature &amp; size dependence.&quot;&quot;&quot;</span>
-<span class="c1">#     mu = mu0 * (M(-0.25)) * np.exp(-E/(kB*T))</span>
-<span class="c1">#     return mu * N * (1 - N/K)</span>
-
-<span class="c1"># def logistic_sim(N0, mu0, M, E, kB, T, K, t_end, dt=0.01):</span>
-<span class="c1">#     &quot;&quot;&quot;Numerical integration of the logistic equation using Euler&#39;s method.&quot;&quot;&quot;</span>
-<span class="c1">#     times = np.arange(0, t_end+dt, dt)</span>
-<span class="c1">#     N_array = np.zeros_like(times)</span>
-<span class="c1">#     N_array[0] = N0</span>
-<span class="c1">#     for i in range(1, len(times)):</span>
-<span class="c1">#         N_current = N_array[i-1]</span>
-<span class="c1">#         t_current = times[i-1]</span>
-<span class="c1">#         # Euler step</span>
-<span class="c1">#         growth_rate = dNdt(N_current, t_current, mu0, M, E, kB, T, K)</span>
-<span class="c1">#         N_next = N_current + growth_rate * dt</span>
-<span class="c1">#         if N_next &lt; 0:</span>
-<span class="c1">#             N_next = 0</span>
-<span class="c1">#         N_array[i] = N_next</span>
-<span class="c1">#     return times, N_array</span>
-
-<span class="c1"># # Parameters</span>
-<span class="c1"># N0_log = 10       # initial population</span>
-<span class="c1"># mu0 = 1.0         # base rate factor</span>
-<span class="c1"># M = 1e-12         # cell mass (arbitrary units)</span>
-<span class="c1"># E = 0.65          # effective activation energy</span>
-<span class="c1"># kB = 0.001987     # Boltzmann-like constant (~ 1/RT scaling) - toy example</span>
-<span class="c1"># T = 300.0         # temperature (K)</span>
-<span class="c1"># K = 1000.0        # carrying capacity</span>
-<span class="c1"># t_end = 50        # simulation time</span>
-
-<span class="c1"># times, N_values = logistic_sim(N0_log, mu0, M, E, kB, T, K, t_end)</span>
-
-<span class="c1"># # Plot results</span>
-<span class="c1"># plt.figure(figsize=(6,4))</span>
-<span class="c1"># plt.plot(times, N_values, label=f&#39;Logistic Growth (T={T} K)&#39;)</span>
-<span class="c1"># plt.axhline(K, color=&#39;r&#39;, linestyle=&#39;--&#39;, label=&#39;Carrying Capacity&#39;)</span>
-<span class="c1"># plt.xlabel(&#39;Time&#39;)</span>
-<span class="c1"># plt.ylabel(&#39;Population Size&#39;)</span>
-<span class="c1"># plt.title(&#39;Logistic Growth with T &amp; M Dependence&#39;)</span>
-<span class="c1"># plt.legend()</span>
-<span class="c1"># plt.show()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
+<!-- Below, we do a simple numerical integration of this logistic equation. --></section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -711,8 +658,8 @@ For microbes, we might treat \)</span>M$ as roughly constant (if cell size doesn
 <li><p>Metabolic Theory suggests a mass (<span class="math notranslate nohighlight">\(M\)</span>) dependence (e.g., <span class="math notranslate nohighlight">\(M^{-1/4}\)</span> scaling) for metabolic and growth rates. Smaller microbes often have higher mass‐specific growth rates.
 *Real microbial growth can be more complex, including lag phases, variable yields, toxin accumulation, pH shifts, etc. The models here are minimal but illustrate the core ideas.</p></li>
 </ul>
-<section id="references-key-theoretical-empirical-foundations">
-<h3>References (Key Theoretical/Empirical Foundations)<a class="headerlink" href="#references-key-theoretical-empirical-foundations" title="Link to this heading">#</a></h3>
+<section id="references">
+<h3>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Arrhenius, S. 1889. <em>Über die Reaktionsgeschwindigkeit bei Inversion von Rohrzucker durch Säuren.</em> Z. Phys. Chem.</p></li>
 <li><p>Verhulst, P. 1838. <em>Notice sur la loi que la population poursuit dans son accroissement.</em> Corr. Math. Phys.</p></li>
@@ -789,8 +736,6 @@ For microbes, we might treat \)</span>M$ as roughly constant (if cell size doesn
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Single Populations</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-vs-continuous-population-growth-in-microbes">Discrete vs. Continuous Population Growth in Microbes</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-geometric-growth">Discrete (Geometric) Growth</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-model">Basic Model</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-synchronous-cell-division">Example: Synchronous Cell Division</a></li>
@@ -808,13 +753,10 @@ For microbes, we might treat \)</span>M$ as roughly constant (if cell size doesn
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-logistic-growth-with-temperature-size-dependence">Continuous Logistic Growth with Temperature &amp; Size Dependence</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references-key-theoretical-empirical-foundations">References (Key Theoretical/Empirical Foundations)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
