@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=3943d584" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -45,10 +45,13 @@
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/togglebutton.js?v=3e7854f7"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -192,7 +195,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="MetabolicBasis.html">The Metabolic Basis of Ecology and Evolutionary dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Populations.html">Single Populations</a></li>
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Data Analyses and Statistics</span></p>
 <ul class="nav bd-sidenav">
@@ -200,8 +202,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Data_R.html">Data Management and Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ExpDesign.html">Experimental design and Data exploration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="t_F_tests.html">Basic hypothesis testing: <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(F\)</span> tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regress.html">Linear Models: Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="anova.html">Linear Models: Analysis of variance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regress.html">Linear Models: Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Anova.html">Linear Models: Analysis of variance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MulExpl.html">Linear Models: Multiple explanatory variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MulExplInter.html">Linear Models: Multiple variables with interactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ModelSimp.html">Model simplification</a></li>
@@ -210,6 +212,10 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="glm.html">Generalised Linear Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="NLLS.html">Model Fitting using Non-linear Least-squares</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -5907,8 +5913,8 @@ from the end of an array:</p>
 <section id="the-lotka-volterra-model">
 <h5>The Lotka-Volterra model<a class="headerlink" href="#the-lotka-volterra-model" title="Link to this heading">#</a></h5>
 <p>Now let’s try numerical integration in Python for solving a classical model in biology — the Lotka-Volterra (LV) model for a predator-prey system in two-dimensional space (e.g., on land). The LV model is:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-104ba973-4989-4e8d-a86f-d10fe6dd762b">
-<span class="eqno">(2)<a class="headerlink" href="#equation-104ba973-4989-4e8d-a86f-d10fe6dd762b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d4f98d97-8ded-417d-87b3-dc18cbd8d793">
+<span class="eqno">(2)<a class="headerlink" href="#equation-d4f98d97-8ded-417d-87b3-dc18cbd8d793" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{dR}{dt} &amp;= r R - a C R  \nonumber \\
     \frac{dC}{dt} &amp;= - z C + e a C R
 \end{align}\]</div>
@@ -6466,8 +6472,8 @@ vectorized method took 100.99498260242399 ms on average.
 <h3>The Lotka-Volterra model revisited<a class="headerlink" href="#the-lotka-volterra-model-revisited" title="Link to this heading">#</a></h3>
 <p><em>What happens when the Consumer population <span class="math notranslate nohighlight">\(C\)</span> goes extinct in the Lotka-Volterra that you encountered above</em>?</p>
 <p>If the consumer population goes extinct, the resources grow to infinity! This is not biologically realistic, of course. To address this, we can introduce density dependence to the resource population <span class="math notranslate nohighlight">\(\left(1 - \frac{R} {K}\right)\)</span>, which changes the ODE system to</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ca156554-f81c-4c18-9527-765c91f1b59c">
-<span class="eqno">(3)<a class="headerlink" href="#equation-ca156554-f81c-4c18-9527-765c91f1b59c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2182a823-fb3f-40d2-8b48-4b941657a29c">
+<span class="eqno">(3)<a class="headerlink" href="#equation-2182a823-fb3f-40d2-8b48-4b941657a29c" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{dR}{dt} &amp;= r R \left(1 - \frac{R} {K}\right) - a C R\\
     \frac{dC}{dt} &amp;= - z C + e a C R
 \end{align}\]</div>
@@ -6497,8 +6503,8 @@ vectorized method took 100.99498260242399 ms on average.
 <ul class="simple">
 <li><p>Write a discrete-time version of the LV model called <code class="docutils literal notranslate"><span class="pre">LV3.py</span></code>. The discrete-time model is:</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-acf926f0-cdca-4f9c-bc13-ca0e84ee8ef3">
-<span class="eqno">(4)<a class="headerlink" href="#equation-acf926f0-cdca-4f9c-bc13-ca0e84ee8ef3" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<div class="amsmath math notranslate nohighlight" id="equation-4db64262-9767-46fd-be51-daea69cbf967">
+<span class="eqno">(4)<a class="headerlink" href="#equation-4db64262-9767-46fd-be51-daea69cbf967" title="Permalink to this equation">#</a></span>\[\begin{align} 
     R_{t+1} &amp;= R_t (1 + r \left(1 - \frac{R_t}{K}\right) - a C_t)\\ 
     C_{t+1} &amp;= C_t (1 - z + e a R_t) 
 \end{align}\]</div>
@@ -6509,14 +6515,14 @@ vectorized method took 100.99498260242399 ms on average.
 <ul class="simple">
 <li><p>Write a version of the discrete-time model (which you implemented in <code class="docutils literal notranslate"><span class="pre">LV3.py</span></code>) simulation with a random gaussian fluctuation in resource’s growth rate at each time-step:</p></li>
 </ul>
-<div class="amsmath math notranslate nohighlight" id="equation-e081c3b1-2820-4b57-a126-cf5632841895">
-<span class="eqno">(5)<a class="headerlink" href="#equation-e081c3b1-2820-4b57-a126-cf5632841895" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cb5994fd-49b3-4380-9ec0-b5bc570b40c0">
+<span class="eqno">(5)<a class="headerlink" href="#equation-cb5994fd-49b3-4380-9ec0-b5bc570b40c0" title="Permalink to this equation">#</a></span>\[\begin{align}
         R_{t+1} &amp;= R_t (1 + (r + \epsilon) \left(1 - \frac{R_t}{K}\right)- a C_t)\\
         C_{t+1} &amp;= C_t (1 - z + e a R_t)
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\epsilon\)</span> is a random fluctuation drawn from a gaussian distribution (use <code class="docutils literal notranslate"><span class="pre">sc.stats</span></code> or <code class="docutils literal notranslate"><span class="pre">np.random</span></code>). Include this script in <code class="docutils literal notranslate"> <span class="pre">run_LV.py</span></code>, and profile it as well. You can also add fluctuations to both populations simultaneously this way:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a79e2fd-68ff-484b-8a9b-0d0d4046d001">
-<span class="eqno">(6)<a class="headerlink" href="#equation-1a79e2fd-68ff-484b-8a9b-0d0d4046d001" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8c4970cb-e3b5-4cb1-9a58-5994015ecca3">
+<span class="eqno">(6)<a class="headerlink" href="#equation-8c4970cb-e3b5-4cb1-9a58-5994015ecca3" title="Permalink to this equation">#</a></span>\[\begin{align}
     R_{t+1} &amp;= R_t (1 + (r + \epsilon)  \left(1 - \frac{R_t}{K}\right) - a C_t)\\
     C_{t+1} &amp;= C_t (1 - (z + \epsilon) + e a R_t)
 \end{align}\]</div>

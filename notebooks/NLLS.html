@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=3943d584" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -45,10 +45,13 @@
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/togglebutton.js?v=3e7854f7"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -60,7 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/NLLS';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Introduction to Jupyter" href="Appendix-JupyIntro.html" />
+    <link rel="next" title="References" href="../references.html" />
     <link rel="prev" title="Generalised Linear Models" href="glm.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -192,7 +195,6 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="MetabolicBasis.html">The Metabolic Basis of Ecology and Evolutionary dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Populations.html">Single Populations</a></li>
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Data Analyses and Statistics</span></p>
 <ul class="nav bd-sidenav">
@@ -200,8 +202,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Data_R.html">Data Management and Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ExpDesign.html">Experimental design and Data exploration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="t_F_tests.html">Basic hypothesis testing: <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(F\)</span> tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regress.html">Linear Models: Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="anova.html">Linear Models: Analysis of variance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regress.html">Linear Models: Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Anova.html">Linear Models: Analysis of variance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MulExpl.html">Linear Models: Multiple explanatory variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MulExplInter.html">Linear Models: Multiple variables with interactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ModelSimp.html">Model simplification</a></li>
@@ -210,6 +212,10 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="glm.html">Generalised Linear Models</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Model Fitting using Non-linear Least-squares</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -706,11 +712,11 @@ Achieved convergence tolerance: 9.503e-06
 </div>
 </div>
 </div>
-<p>This looks a lot like the output of a linear model, and to be specific, of a <a class="reference internal" href="regress.html"><span class="std std-doc">Linear Regression</span></a>. For starters, compare the above output with the output of <code class="docutils literal notranslate"><span class="pre">summary(genomeSizeModelDragon)</span></code> in <a class="reference internal" href="regress.html#regress-perform"><span class="std std-ref">this section</span></a> of the Linear Regression chapter.</p>
+<p>This looks a lot like the output of a linear model, and to be specific, of a <a class="reference internal" href="#./regress.ipynb"><span class="xref myst">Linear Regression</span></a>. For starters, compare the above output with the output of <code class="docutils literal notranslate"><span class="pre">summary(genomeSizeModelDragon)</span></code> in <a class="reference internal" href="Regress.html#regress-perform"><span class="std std-ref">this section</span></a> of the Linear Regression chapter.</p>
 <p>So here are the main things to note about the output of <code class="docutils literal notranslate"><span class="pre">summary()</span></code> of an <code class="docutils literal notranslate"><span class="pre">nls()</span></code> model object:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Estimate</span></code>s are, as in the output of the <code class="docutils literal notranslate"><span class="pre">lm()</span></code> function for fitting linear models, the estimated values of the coefficients of the model that you fitted (<span class="math notranslate nohighlight">\(V_{\max}\)</span> and <span class="math notranslate nohighlight">\(K_M\)</span>). Note that although we generated our data using <span class="math notranslate nohighlight">\(V_{\max} = 12.5\)</span> and <span class="math notranslate nohighlight">\(K_M = 7.1\)</span>, the actual coefficients are quite different from what we are getting with the NLLS fitting (<span class="math notranslate nohighlight">\(\hat{V}_{\max} = 12.96\)</span> and <span class="math notranslate nohighlight">\(\hat{K}_M = 10.61\)</span>). This is because we added random (normally-distributed) errors when we generated the “data”. This tells you something about how experimental and/or measurement errors can distort your image of the underlying mechanism or process.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Std.</span> <span class="pre">Error</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">value</span></code>, and <code class="docutils literal notranslate"><span class="pre">Pr(&gt;|t|)</span></code> and <code class="docutils literal notranslate"><span class="pre">Residual</span> <span class="pre">standard</span> <span class="pre">error</span></code> have the same interpretation as in the output of <code class="docutils literal notranslate"><span class="pre">lm()</span></code> (please look back at the <a class="reference internal" href="regress.html"><span class="std std-doc">Linear Regression Chapter</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Std.</span> <span class="pre">Error</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">value</span></code>, and <code class="docutils literal notranslate"><span class="pre">Pr(&gt;|t|)</span></code> and <code class="docutils literal notranslate"><span class="pre">Residual</span> <span class="pre">standard</span> <span class="pre">error</span></code> have the same interpretation as in the output of <code class="docutils literal notranslate"><span class="pre">lm()</span></code> (please look back at the <a class="reference internal" href="#./regress.ipynb"><span class="xref myst">Linear Regression Chapter</span></a>)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Number</span> <span class="pre">of</span> <span class="pre">iterations</span> <span class="pre">to</span> <span class="pre">convergence</span></code> tells you how many times the NLLS algorithm had to adjust the parameter values till it managed to find a solution that minimizes the Residual Sum of Squares (RSS)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Achieved</span> <span class="pre">convergence</span> <span class="pre">tolerance</span></code> tells you on what basis the algorithm decided that it was close enough to the a solution; basically if the RSS does not improve more than a certain threshold despite parameter adjustments, the algorithm stops searching. This may or may not be close to an optimal solution (but in this case it is).</p></li>
 </ul>
@@ -725,7 +731,7 @@ Achieved convergence tolerance: 9.503e-06
 <p>So what do we do with the results of an NLLS fit? What statistical inferences can be made? We will address this issue here at a basic level, and then revisit it using model selection further below (in the Allometric growth example).</p>
 <section id="goodness-of-fit">
 <h3>Goodness of fit<a class="headerlink" href="#goodness-of-fit" title="Link to this heading">#</a></h3>
-<p>Assessing whether an NLLS-fitted model is “significant” based on an F-value, by performing an Analysis of Variance (ANOVA) on the regression results as one can do for a Linear Model using the <a class="reference internal" href="regress.html#regress-perform"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">anova()</span></code> function on a linear model fit</span></a> is not advisable. Try <code class="docutils literal notranslate"><span class="pre">anova(MM_model)</span></code>, and see what happens:</p>
+<p>Assessing whether an NLLS-fitted model is “significant” based on an F-value, by performing an Analysis of Variance (ANOVA) on the regression results as one can do for a Linear Model using the <a class="reference internal" href="Regress.html#regress-perform"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">anova()</span></code> function on a linear model fit</span></a> is not advisable. Try <code class="docutils literal notranslate"><span class="pre">anova(MM_model)</span></code>, and see what happens:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">anova</span><span class="p">(</span><span class="n">MM_model</span><span class="p">)</span>
@@ -743,15 +749,15 @@ Achieved convergence tolerance: 9.503e-06
 </div>
 </div>
 </div>
-<p>So a ANOVA calculation is not implemented for a NLLS fit. The third item in the error message / traceback above says that you can however use <code class="docutils literal notranslate"><span class="pre">anova()</span></code> to compare two <em>nested</em> models. That is, you can do something like <code class="docutils literal notranslate"><span class="pre">anova(model1,model2)</span></code>, where model 1 is nested within model 1, as we did <a class="reference internal" href="regress.html"><span class="std std-doc">previously</span></a> to ask if a simpler model explains significantly more variation in the data than a more complicated one (with one or more addtional terms in the equation).</p>
-<p>To understand why you cannot use an ANOVA to assess the significance of a NLLS model fit, recall that the objective of an <a class="reference internal" href="regress.html#regress-perform"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">anova()</span></code> function applied to  a linear model fit</span></a> is o compare the fitted model to a <em>null</em> model, asking whether you can reject that null model (hypothesis). The problem with doing so for a nonlinear model is that unfortunately it is not clear what the null hypothesis should be when the model is not a linear combination of terms (the definition of a linear model). For an F-statistic to be meaningful, the null hypothesis model must be nested <em>within</em> the alternative model (in which case you can indeed use the <code class="docutils literal notranslate"><span class="pre">anova()</span></code> function using <code class="docutils literal notranslate"><span class="pre">anova(Model1,Model2)</span></code>).</p>
+<p>So a ANOVA calculation is not implemented for a NLLS fit. The third item in the error message / traceback above says that you can however use <code class="docutils literal notranslate"><span class="pre">anova()</span></code> to compare two <em>nested</em> models. That is, you can do something like <code class="docutils literal notranslate"><span class="pre">anova(model1,model2)</span></code>, where model 1 is nested within model 1, as we did <a class="reference internal" href="#./regress.ipynb"><span class="xref myst">previously</span></a> to ask if a simpler model explains significantly more variation in the data than a more complicated one (with one or more addtional terms in the equation).</p>
+<p>To understand why you cannot use an ANOVA to assess the significance of a NLLS model fit, recall that the objective of an <a class="reference internal" href="Regress.html#regress-perform"><span class="std std-ref"><code class="docutils literal notranslate"><span class="pre">anova()</span></code> function applied to  a linear model fit</span></a> is o compare the fitted model to a <em>null</em> model, asking whether you can reject that null model (hypothesis). The problem with doing so for a nonlinear model is that unfortunately it is not clear what the null hypothesis should be when the model is not a linear combination of terms (the definition of a linear model). For an F-statistic to be meaningful, the null hypothesis model must be nested <em>within</em> the alternative model (in which case you can indeed use the <code class="docutils literal notranslate"><span class="pre">anova()</span></code> function using <code class="docutils literal notranslate"><span class="pre">anova(Model1,Model2)</span></code>).</p>
 <p>To make this clear, let’s recall the equation for a simple linear regression:</p>
 <div class="math notranslate nohighlight">
 \[y = \beta_0 + \beta_1 x\]</div>
 <p>The null model for this is</p>
 <div class="math notranslate nohighlight">
 \[y = \beta_0\]</div>
-<p>This then allows the TSS, RSS and ESS to be calculated in a meaninglful way, as we <a class="reference internal" href="regress.html"><span class="std std-doc">did before</span></a>, leading to an ANOVA based assessment of significance of the regrssion moel fit to the data.</p>
+<p>This then allows the TSS, RSS and ESS to be calculated in a meaninglful way, as we <a class="reference internal" href="#./regress.ipynb"><span class="xref myst">did before</span></a>, leading to an ANOVA based assessment of significance of the regrssion moel fit to the data.</p>
 <p>Now consider a nonlinear model like the Michaelis-Menten eqn <a class="reference internal" href="#equation-eq-m-m">(7)</a>. <em>What would be an appropriate null model for this equation?</em></p>
 <p>Thus, the best ways to assess a NLLS model’s fit are:</p>
 <ul class="simple">
@@ -791,7 +797,7 @@ Achieved convergence tolerance: 9.503e-06
 <p>The <code class="docutils literal notranslate"><span class="pre">Waiting</span> <span class="pre">for</span> <span class="pre">profiling</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">done...</span></code> message reflects the fact that calculating the standard errors from which the CI’s are calculated requires a particular computational procedure (which we will not go into here) when it comes to NLLS fits.</p>
 <p>Calculating confidence intervals can be useful because,</p>
 <ol class="arabic simple">
-<li><p>As you learned <a class="reference internal" href="t_F_tests.html#t-f-tests-ci"><span class="std std-ref">here</span></a>, <a class="reference internal" href="t_F_tests.html#t-f-tests-ci2"><span class="std std-ref">here</span></a>, and <a class="reference internal" href="anova.html#anova-ci"><span class="std std-ref">here</span></a> (among other places) you can use a coefficient/parameter estimate’s confidence intervals to test whether it is significantly different from some reference value. In our CI example above, the intervals for <code class="docutils literal notranslate"><span class="pre">K_M</span></code> do in fact include the original value of <span class="math notranslate nohighlight">\(K_M = 7.1\)</span> that we used to generate the data.</p></li>
+<li><p>As you learned <a class="reference internal" href="t_F_tests.html#t-f-tests-ci"><span class="std std-ref">here</span></a>, <a class="reference internal" href="t_F_tests.html#t-f-tests-ci2"><span class="std std-ref">here</span></a>, and <a class="reference internal" href="Anova.html#anova-ci"><span class="std std-ref">here</span></a> (among other places) you can use a coefficient/parameter estimate’s confidence intervals to test whether it is significantly different from some reference value. In our CI example above, the intervals for <code class="docutils literal notranslate"><span class="pre">K_M</span></code> do in fact include the original value of <span class="math notranslate nohighlight">\(K_M = 7.1\)</span> that we used to generate the data.</p></li>
 <li><p>Confidence intervals can also be used to do a quick (but not robust - see warning below) test of whether coefficient estimates of the same model coefficient obtained from different populations (samples) are significantly different from each other (If their CI’s don’t overlap, they are significantly different).</p></li>
 </ol>
 <div class="admonition warning">
@@ -1188,7 +1194,7 @@ Achieved convergence tolerance: 1.49e-08
 </div>
 </div>
 <p>The residuals look OK. But this should not come as a surprise because we generated these “data” ourselves using normally-distributed errors!</p>
-<p>You may also want to look at further diagnostics, as we did <a class="reference internal" href="regress.html#regress-diagnostics"><span class="std std-ref">previously</span></a> in the case of Linear models. The most convenient way to do this is to use the <code class="docutils literal notranslate"><span class="pre">nlstools</span></code> package. We will not go into it here, but you can have a look at its <a class="reference external" href="https://rdrr.io/rforge/nlstools/">documentation</a>. Note that you will need to install this package as it is not one of the core (base) R packages. <code class="docutils literal notranslate"><span class="pre">nlstools</span></code> has some other handy utilities as well; for example, its <code class="docutils literal notranslate"><span class="pre">preview</span></code> command allows you to visualise how good the starting values are (by evaluating your non-linear function at those values) in advance of the actual fitting.</p>
+<p>You may also want to look at further diagnostics, as we did <a class="reference internal" href="Regress.html#regress-diagnostics"><span class="std std-ref">previously</span></a> in the case of Linear models. The most convenient way to do this is to use the <code class="docutils literal notranslate"><span class="pre">nlstools</span></code> package. We will not go into it here, but you can have a look at its <a class="reference external" href="https://rdrr.io/rforge/nlstools/">documentation</a>. Note that you will need to install this package as it is not one of the core (base) R packages. <code class="docutils literal notranslate"><span class="pre">nlstools</span></code> has some other handy utilities as well; for example, its <code class="docutils literal notranslate"><span class="pre">preview</span></code> command allows you to visualise how good the starting values are (by evaluating your non-linear function at those values) in advance of the actual fitting.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For the remaining examples, we will switch to using <code class="docutils literal notranslate"><span class="pre">nlsLM</span></code> instead of <code class="docutils literal notranslate"><span class="pre">nls</span></code>.</p>
@@ -2305,11 +2311,11 @@ In both cases, the <em>mean</em> of the sampling distribution will be the starti
       </div>
     </a>
     <a class="right-next"
-       href="Appendix-JupyIntro.html"
+       href="../references.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction to Jupyter</p>
+        <p class="prev-next-title">References</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

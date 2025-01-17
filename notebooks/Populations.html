@@ -30,7 +30,7 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=3943d584" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
@@ -45,10 +45,13 @@
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/togglebutton.js?v=3e7854f7"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -199,8 +202,8 @@
 <li class="toctree-l1"><a class="reference internal" href="Data_R.html">Data Management and Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ExpDesign.html">Experimental design and Data exploration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="t_F_tests.html">Basic hypothesis testing: <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(F\)</span> tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="regress.html">Linear Models: Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="anova.html">Linear Models: Analysis of variance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regress.html">Linear Models: Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Anova.html">Linear Models: Analysis of variance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MulExpl.html">Linear Models: Multiple explanatory variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MulExplInter.html">Linear Models: Multiple variables with interactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ModelSimp.html">Model simplification</a></li>
@@ -209,6 +212,10 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="glm.html">Generalised Linear Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="NLLS.html">Model Fitting using Non-linear Least-squares</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendices</span></p>
 <ul class="nav bd-sidenav">
@@ -431,7 +438,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cellsize-scaling-mte">Cell‐Size Scaling (MTE)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-logistic-growth-with-temperature-size-dependence">Continuous Logistic Growth with Temperature &amp; Size Dependence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-growth-with-temperature-size-dependence">Logistic Growth with Temperature &amp; Size Dependence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-logistic-growth-bifurcations-and-metabolic-constraints">Discrete Logistic Growth, bifurcations and metabolic constraints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-microbial-growth">Connection to Microbial Growth</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-bifurcation-diagram">Basic Bifurcation Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-temperature-cell-size-effects-as-parameter-shifts">Interpreting Temperature &amp; Cell-Size Effects as Parameter Shifts</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
@@ -516,7 +529,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/eef8185b93e2dba6de06e418a53a34263fbce825dab103519e76b4fd8b6d8346.png" src="../_images/eef8185b93e2dba6de06e418a53a34263fbce825dab103519e76b4fd8b6d8346.png" />
+<img alt="../_images/67405eea5cfe894bee0d27d61dd9da753a6d1f7be9ea155c01b16482531f6670.png" src="../_images/67405eea5cfe894bee0d27d61dd9da753a6d1f7be9ea155c01b16482531f6670.png" />
 </div>
 </div>
 </section>
@@ -534,7 +547,7 @@ document.write(`
 <p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the intrinsic growth rate (per unit time). The solution is:</p>
 <div class="math notranslate nohighlight">
 \[
-    N(t) = N(0)\, e^{\mu t}.
+    N(t) = N(0)  e^{\mu t}.
 \]</div>
 <p>When interpreted at large population sizes, this model can approximate the effect of many asynchronous cell divisions happening randomly but with an average rate <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 </section>
@@ -591,7 +604,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8d387354c249f5bbff5f23f3cd596f39e20632e6d317e800c58aead216024479.png" src="../_images/8d387354c249f5bbff5f23f3cd596f39e20632e6d317e800c58aead216024479.png" />
+<img alt="../_images/9c01f0dff2754550453e926c3ac7ec73eeb401b14efec59e8fd20218222ae78a.png" src="../_images/9c01f0dff2754550453e926c3ac7ec73eeb401b14efec59e8fd20218222ae78a.png" />
 </div>
 </div>
 </section>
@@ -614,49 +627,169 @@ document.write(`
 </section>
 <section id="cellsize-scaling-mte">
 <h3>Cell‐Size Scaling (MTE)<a class="headerlink" href="#cellsize-scaling-mte" title="Link to this heading">#</a></h3>
-<p>From the Metabolic Theory of Ecology (MTE), we often assume metabolism (and hence growth rate) scales as <span class="math notranslate nohighlight">\(M^{-1/4}\)</span>, where <span class="math notranslate nohighlight">\(M\)</span> is cell mass. Thus,</p>
+<p>From the Metabolic Theory of Ecology (MTE), we often assume metabolism (and hence growth rate) scales as <span class="math notranslate nohighlight">\(M^{b-1}\)</span>, where <span class="math notranslate nohighlight">\(M\)</span> is cell mass. Thus,</p>
 <div class="math notranslate nohighlight">
 \[
-    \mu(T,M) = \mu_0 M^{-1/4} \exp\Bigl(-\frac{E}{k_B T}\Bigr).
+    \mu(T,M) = \mu_0 M^{b-1} \exp\Bigl(-\frac{E}{k_B T}\Bigr).
 \]</div>
 <p>For microbes, we might treat <span class="math notranslate nohighlight">\(M\)</span> as roughly constant (if cell size doesn’t change much), or we can incorporate cell growth in more advanced models.</p>
 </section>
 </section>
-<section id="continuous-logistic-growth-with-temperature-size-dependence">
-<h2>Continuous Logistic Growth with Temperature &amp; Size Dependence<a class="headerlink" href="#continuous-logistic-growth-with-temperature-size-dependence" title="Link to this heading">#</a></h2>
+<section id="logistic-growth-with-temperature-size-dependence">
+<h2>Logistic Growth with Temperature &amp; Size Dependence<a class="headerlink" href="#logistic-growth-with-temperature-size-dependence" title="Link to this heading">#</a></h2>
 <p>Recall from the previous chapter:</p>
 <div class="math notranslate nohighlight">
 \[
-    \frac{dN}{dt} = \mu(T,M)\, N\,\Bigl(1 - \frac{N}{K}\Bigr).
+    \frac{dN}{dt} = r(T,M)  N \Bigl(1 - \frac{N}{K}\Bigr).
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(K\)</span> is the carrying capacity (the maximum population or density). Here we can plug in:</p>
 <div class="math notranslate nohighlight">
 \[
-    \mu(T,M) = \mu_0\, M^{-1/4}\, \exp\!\Bigl(-\frac{E}{k_B T}\Bigr).
+    r(T,M) = \mu_0  M^{b-1}  \exp \Bigl(-\frac{E}{k_B T}\Bigr).
 \]</div>
 <p>Then:</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{dN}{dt}
-\;=\;
-\Bigl[
+\frac{dN}{dt} = \Bigl[
   \underbrace{
-    \mu_0\,M^{-\tfrac{1}{4}}\,
-    \exp\!\Bigl(-\tfrac{E}{k_B\,T}\Bigr)
+    r_0 M^{-\tfrac{1}{4}} 
+    \exp \Bigl(-\tfrac{E}{k_B T}\Bigr)
   }_{\text{Temperature \&amp; size dependent rate}}
 \Bigr]
-\,N
-\,\Bigl(1 - \tfrac{N}{K}\Bigr).
+ N
+ \Bigl(1 - \tfrac{N}{K}\Bigr).
 \]</div>
-<!-- Below, we do a simple numerical integration of this logistic equation. --></section>
+<!-- Below, we do a simple numerical integration of this logistic equation. --><section id="discrete-logistic-growth-bifurcations-and-metabolic-constraints">
+<h3>Discrete Logistic Growth, bifurcations and metabolic constraints<a class="headerlink" href="#discrete-logistic-growth-bifurcations-and-metabolic-constraints" title="Link to this heading">#</a></h3>
+<p>Now, consider the discrete Logistic equation where we have set K = 1:</p>
+<div class="math notranslate nohighlight">
+\[
+    N_{t+1} = r N_t (1 - N_t).
+\]</div>
+<p>This equation can exhibit stable fixed points, cycles of period 2, 4, 8, … and eventually <em>chaos</em> as <span class="math notranslate nohighlight">\(r\)</span> increases.</p>
+</section>
+<section id="connection-to-microbial-growth">
+<h3>Connection to Microbial Growth<a class="headerlink" href="#connection-to-microbial-growth" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>In real <em>microbial systems</em>, each cell divides at some <em>rate</em> influenced by <em>temperature</em> and <em>cell size</em>.</p></li>
+<li><p>If we track population in <em>discrete time steps</em> (e.g., daily sampling, or once per generation), a <em>discrete map</em> can be used.</p></li>
+<li><p>Changes in <em>temperature</em> or <em>mass</em> can effectively modify the <em>growth parameter</em> <span class="math notranslate nohighlight">\(r\)</span>. For instance, if we had<br />
+$<span class="math notranslate nohighlight">\(
+  r(T,M) = r_0 M^{b-1} \exp \Bigl(-\frac{E}{k_B T}\Bigr),
+\)</span><span class="math notranslate nohighlight">\(  
+a higher \)</span>T<span class="math notranslate nohighlight">\( (within tolerable limits) would *increase* \)</span>r$. The discrete logistic map might thus move into or out of chaotic regimes as conditions shift!</p></li>
+</ul>
+</section>
+<section id="basic-bifurcation-diagram">
+<h3>Basic Bifurcation Diagram<a class="headerlink" href="#basic-bifurcation-diagram" title="Link to this heading">#</a></h3>
+<p>A <em>bifurcation diagram</em> for the logistic map shows, for each <span class="math notranslate nohighlight">\(r\)</span>, the <em>long-term population values</em> <span class="math notranslate nohighlight">\(N\)</span> after discarding initial transients:</p>
+<ul class="simple">
+<li><p>At lower <span class="math notranslate nohighlight">\(r\)</span> (e.g., <span class="math notranslate nohighlight">\(0 &lt; r &lt; 1\)</span>), <span class="math notranslate nohighlight">\(N=0\)</span> is stable (the population goes extinct).</p></li>
+<li><p>For <span class="math notranslate nohighlight">\(1 &lt; r &lt; 3\)</span>, the population settles to a <em>stable fixed point</em>.</p></li>
+<li><p>At <span class="math notranslate nohighlight">\(r=3\)</span>, the system <em>bifurcates</em> to a period-2 cycle. Further increases in <span class="math notranslate nohighlight">\(r\)</span> lead to period-4, period-8, etc.</p></li>
+<li><p>Eventually, around <span class="math notranslate nohighlight">\(r \approx 3.5699\ldots\)</span>, the system enters <em>chaos</em>, though with certain windows of periodicity.</p></li>
+</ul>
+<p>Below, we implement a <em>standard</em> logistic map in code, vary <span class="math notranslate nohighlight">\(r\)</span> in <span class="math notranslate nohighlight">\([0,4]\)</span>, iterate a certain number of steps, discard transients, then plot the final states.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">logistic_map</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">r</span> <span class="o">*</span> <span class="n">N</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">N</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">bifurcation_diagram</span><span class="p">(</span><span class="n">r_min</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">r_max</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">discard</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">4000</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate (r, N) pairs for a bifurcation diagram of the logistic map:</span>
+<span class="sd">       N_{t+1} = r * N_t * (1 - N_t).</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">      r_min, r_max : range of r values.</span>
+<span class="sd">      steps        : total number of iterations per r.</span>
+<span class="sd">      discard      : how many initial iterations to discard as &#39;transient&#39;.</span>
+<span class="sd">      resolution   : how many r-values to sample.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">      (r_vals, N_vals) as arrays that can be plotted (scatter) to see the bifurcation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">r_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">r_min</span><span class="p">,</span> <span class="n">r_max</span><span class="p">,</span> <span class="n">resolution</span><span class="p">)</span>
+    <span class="n">r_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">N_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">r_values</span><span class="p">:</span>
+        <span class="c1"># start from random initial condition in (0,1)</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+        <span class="c1"># iterate for &#39;discard&#39; steps to let transients die out</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">discard</span><span class="p">):</span>
+            <span class="n">N</span> <span class="o">=</span> <span class="n">logistic_map</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+        <span class="c1"># now record the next &#39;steps-discard&#39; values</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">discard</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+            <span class="n">N</span> <span class="o">=</span> <span class="n">logistic_map</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+            <span class="n">r_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+            <span class="n">N_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">r_list</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">N_list</span><span class="p">)</span>
+
+<span class="c1"># Run the bifurcation</span>
+<span class="n">r_bif</span><span class="p">,</span> <span class="n">N_bif</span> <span class="o">=</span> <span class="n">bifurcation_diagram</span><span class="p">(</span>
+    <span class="n">r_min</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">r_max</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">discard</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">2000</span>
+<span class="p">)</span>
+
+<span class="c1"># Plot the bifurcation diagram</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">r_bif</span><span class="p">,</span> <span class="n">N_bif</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Long-term N&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Bifurcation Diagram: Logistic Map&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a3f6c815862473993d94d852893058f133dd570527c3e3b0e16822a076445e8c.png" src="../_images/a3f6c815862473993d94d852893058f133dd570527c3e3b0e16822a076445e8c.png" />
+</div>
+</div>
+</section>
+<section id="interpreting-temperature-cell-size-effects-as-parameter-shifts">
+<h3>Interpreting Temperature &amp; Cell-Size Effects as Parameter Shifts<a class="headerlink" href="#interpreting-temperature-cell-size-effects-as-parameter-shifts" title="Link to this heading">#</a></h3>
+<p>In our earlier discussions, we had a <em>discrete logistic</em> model like:</p>
+<div class="math notranslate nohighlight">
+\[
+N_{t+1} = N_t + r(T,M) N_t\Bigl(1 - \frac{N_t}{K}\Bigr),
+\]</div>
+<p>or a version scaled so that <span class="math notranslate nohighlight">\(N_t \in [0,1]\)</span>, which might look like:</p>
+<div class="math notranslate nohighlight">
+\[
+N_{t+1} = r(T,M) N_t (1 - N_t).
+\]</div>
+<p>Here, we could define</p>
+<div class="math notranslate nohighlight">
+\[
+r(T,M) = r_0   M^{b-1} \exp \Bigl(-\tfrac{E}{k_B T}\Bigr).
+\]</div>
+<ul class="simple">
+<li><p>As <em>temperature</em> <span class="math notranslate nohighlight">\(T\)</span> increases, <span class="math notranslate nohighlight">\(r(T,M)\)</span> <em>increases</em> (until proteins denature in real biology).</p></li>
+<li><p><em>Smaller</em> cell mass <span class="math notranslate nohighlight">\(M\)</span> also <em>increases</em> the effective growth parameter (<span class="math notranslate nohighlight">\(M^{b-1}\)</span> &gt; 1 for <span class="math notranslate nohighlight">\(M&lt;1\)</span>, in suitable units).</p></li>
+</ul>
+<p>Hence, <em>sweeping</em> <span class="math notranslate nohighlight">\(r\)</span> from ~2.5 to 4.0 in the standard logistic map can be thought of as changing <em>temperature</em> and/or <em>cell size</em> in some continuous manner. In real systems, you might not sweep all the way to 4.0, but the <em>bifurcation</em> perspective reminds us that <em>discrete population dynamics</em> can become very complex at higher intrinsic growth rates.</p>
+<p>Thus, <em>Bifurcation analysis</em> of the <em>discrete logistic map</em> reveals:</p>
+<ul class="simple">
+<li><p><em>Stable equilibria</em> at low growth rates.</p></li>
+<li><p><em>Period-doubling</em> route to chaos as <span class="math notranslate nohighlight">\(r\)</span> increases.</p></li>
+<li><p>Complex behaviors including <em>periodic windows</em> embedded in chaos.</p></li>
+</ul>
+</section>
+</section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Microbial cell division is inherently discrete (integer splits), but at large population sizes, the overall population growth can be approximated by continuous models.</p></li>
 <li><p>Exponential growth describes unlimited resources, while logistic growth incorporates resource limitations and saturates at a carrying capacity.</p></li>
 <li><p>Reaction rates (and thus growth) typically follow an Arrhenius/Eyring‐type increase with temperature—up to an optimal or denaturation point in real cells.</p></li>
-<li><p>Metabolic Theory suggests a mass (<span class="math notranslate nohighlight">\(M\)</span>) dependence (e.g., <span class="math notranslate nohighlight">\(M^{-1/4}\)</span> scaling) for metabolic and growth rates. Smaller microbes often have higher mass‐specific growth rates.
-*Real microbial growth can be more complex, including lag phases, variable yields, toxin accumulation, pH shifts, etc. The models here are minimal but illustrate the core ideas.</p></li>
+<li><p>Metabolic Theory suggests a mass (<span class="math notranslate nohighlight">\(M\)</span>) dependence (e.g., <span class="math notranslate nohighlight">\(M^{b-1}\)</span> scaling) for metabolic and growth rates. Smaller microbes often have higher mass‐specific growth rates.</p></li>
+<li><p>Real microbial growth can be more complex, including lag phases, variable yields, toxin accumulation, pH shifts, etc. The models here are minimal but illustrate the core ideas.</p></li>
+<li><p>If a microbe’s <em>division rate</em> (in discrete time) is strongly elevated (e.g., by high temperature), the population might enter regions of complex or oscillatory/chaotic dynamics under certain conditions.</p></li>
+<li><p>Most laboratory cultures do not push <span class="math notranslate nohighlight">\(r\)</span> to extremely high values in a single discrete step, but ecological systems (e.g., chemostats or large inflows of resources) can approach such regimes.</p></li>
 </ul>
 <section id="references">
 <h3>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h3>
@@ -667,6 +800,8 @@ document.write(`
 <li><p>Brown, J.H. et al. 2004. <em>Toward a Metabolic Theory of Ecology.</em> Ecology, 85, 1771–1789.</p></li>
 <li><p>Ratkowsky, D.A. et al. 1982. <em>Relationship between temperature and growth rate of bacterial cultures.</em> J. Bacteriol.</p></li>
 <li><p>Schaechter, M., Maaløe, O. &amp; Kjeldgaard, N.O. 1958 &amp; 1962. <em>Dependency on medium and temperature of cell size and chemical composition during balanced growth of Salmonella typhimurium.</em> J. Gen. Microbiol.</p></li>
+<li><p>May, R. M. (1976). <em>Simple mathematical models with very complicated dynamics.</em> Nature, 261, 459–467. (Seminal paper on logistic map chaos.)</p></li>
+<li><p>Feigenbaum, M. J. (1978). <em>Quantitative universality for a class of nonlinear transformations.</em> Journal of Statistical Physics, 19, 25–52. (Period-doubling universality.)</p></li>
 </ul>
 </section>
 </section>
@@ -751,7 +886,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cellsize-scaling-mte">Cell‐Size Scaling (MTE)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-logistic-growth-with-temperature-size-dependence">Continuous Logistic Growth with Temperature &amp; Size Dependence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-growth-with-temperature-size-dependence">Logistic Growth with Temperature &amp; Size Dependence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-logistic-growth-bifurcations-and-metabolic-constraints">Discrete Logistic Growth, bifurcations and metabolic constraints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connection-to-microbial-growth">Connection to Microbial Growth</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-bifurcation-diagram">Basic Bifurcation Diagram</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-temperature-cell-size-effects-as-parameter-shifts">Interpreting Temperature &amp; Cell-Size Effects as Parameter Shifts</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
