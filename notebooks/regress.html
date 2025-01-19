@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=3943d584" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=01a0bdc2" />
@@ -60,8 +60,6 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/regress';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Linear Models: Analysis of variance" href="anova.html" />
-    <link rel="prev" title="Basic hypothesis testing: \(t\) and \(F\) tests" href="t_F_tests.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -123,6 +121,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -192,16 +192,14 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="MetabolicBasis.html">The Metabolic Basis of Ecology and Evolutionary dynamics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Populations.html">Single Populations</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Data Analyses and Statistics</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../intro-Stats.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Data_R.html">Data Management and Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ExpDesign.html">Experimental design and Data exploration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="t_F_tests.html">Basic hypothesis testing: <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(F\)</span> tests</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Linear Models: Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="anova.html">Linear Models: Analysis of variance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MulExpl.html">Linear Models: Multiple explanatory variables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MulExplInter.html">Linear Models: Multiple variables with interactions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ModelSimp.html">Model simplification</a></li>
@@ -607,16 +605,16 @@ document.write(`
 <p class="admonition-title">Note</p>
 <p>The Pearson correlation coefficient is a <em>parametric</em> statistic because it requires the <em>mean</em> of each variable, which is an <a class="reference internal" href="ExpDesign.html#expdesign-some-statistical-parlance"><span class="std std-ref"><em>estimated parameter</em></span></a>.</p>
 </div>
-<p>The calculation of the Pearson correlation coefficient is illustrated in <a class="reference internal" href="#pearson-c-c"><span class="std std-numref">Fig. 28</span></a>.</p>
+<p>The calculation of the Pearson correlation coefficient is illustrated in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Pearson-c-c</span></code>.</p>
 <hr class="docutils" />
 <figure class="align-default" id="pearson-c-c">
 <a class="reference internal image-reference" href="../_images/corr.svg"><img alt="Pearson's Correlation Coefficient" src="../_images/corr.svg" style="width: 800px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 28 </span><span class="caption-text"><strong>Illustration of what the Pearson correlation coefficient means.</strong> It is calculated using the differences from the mean on each axis. The key calculation is —for each point— to get the product of the differences on each axis and add them up. The Pearson correlation coefficient simply scales these sums of <span class="math notranslate nohighlight">\(xy\)</span> to be between -1 (perfectly negatively correlated) and 1 (perfectly positively correlated) via zero (no correlation). If the points are mostly top left (<span class="math notranslate nohighlight">\(-x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>) or bottom right (<span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(-y\)</span>) then these products are mostly negative (<span class="math notranslate nohighlight">\(-xy\)</span>); if the points are mostly top right (<span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>) or bottom left (<span class="math notranslate nohighlight">\(-x\)</span>, <span class="math notranslate nohighlight">\(-y\)</span>) then the products are mostly positive (<span class="math notranslate nohighlight">\(xy\)</span>).</span><a class="headerlink" href="#pearson-c-c" title="Link to this image">#</a></p>
+<p><span class="caption-text"><strong>Illustration of what the Pearson correlation coefficient means.</strong> It is calculated using the differences from the mean on each axis. The key calculation is —for each point— to get the product of the differences on each axis and add them up. The Pearson correlation coefficient simply scales these sums of <span class="math notranslate nohighlight">\(xy\)</span> to be between -1 (perfectly negatively correlated) and 1 (perfectly positively correlated) via zero (no correlation). If the points are mostly top left (<span class="math notranslate nohighlight">\(-x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>) or bottom right (<span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(-y\)</span>) then these products are mostly negative (<span class="math notranslate nohighlight">\(-xy\)</span>); if the points are mostly top right (<span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>) or bottom left (<span class="math notranslate nohighlight">\(-x\)</span>, <span class="math notranslate nohighlight">\(-y\)</span>) then the products are mostly positive (<span class="math notranslate nohighlight">\(xy\)</span>).</span><a class="headerlink" href="#pearson-c-c" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
-<p>The plots in in <a class="reference internal" href="#pearson-c-c"><span class="std std-numref">Fig. 28</span></a> show three clear cases where all the values of <span class="math notranslate nohighlight">\(xy\)</span> are negative or positive or where both are present and sum to zero. Thus the coefficient (<span class="math notranslate nohighlight">\(r_{xy}\)</span>) will be positive (negative) if the <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(y_i\)</span>’s tend to move in the same (opposite) direction relative to their respective means (as illustrated here).</p>
+<p>The plots in in <code class="xref std std-numref docutils literal notranslate"><span class="pre">Pearson-c-c</span></code> show three clear cases where all the values of <span class="math notranslate nohighlight">\(xy\)</span> are negative or positive or where both are present and sum to zero. Thus the coefficient (<span class="math notranslate nohighlight">\(r_{xy}\)</span>) will be positive (negative) if the <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(y_i\)</span>’s tend to move in the same (opposite) direction relative to their respective means (as illustrated here).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>More technically, the Pearson correlation coefficient is a normalised measure of the <em>covariance</em> (such that it always takes a value between -1 and 1).</p>
@@ -978,7 +976,7 @@ Thus you can see that the regression slope is proportional to the correlation co
 <figure class="align-default" id="regress-null-model">
 <a class="reference internal image-reference" href="../_images/regResid.png"><img alt="ANOVA example" src="../_images/regResid.png" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 29 </span><span class="caption-text"><strong>Comparison of the null and regression models, and the meaning of the sums of squares.</strong> We are interested in how much smaller the residuals are for the genome size model than the null model. Graphically, this means how much shorter are the red residuals than the blue residuals (in the null model).</span><a class="headerlink" href="#regress-null-model" title="Link to this image">#</a></p>
+<p><span class="caption-text"><strong>Comparison of the null and regression models, and the meaning of the sums of squares.</strong> We are interested in how much smaller the residuals are for the genome size model than the null model. Graphically, this means how much shorter are the red residuals than the blue residuals (in the null model).</span><a class="headerlink" href="#regress-null-model" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1019,7 +1017,7 @@ Thus you can see that the regression slope is proportional to the correlation co
 <figure class="align-default" id="dragonfly-regression">
 <a class="reference internal image-reference" href="../_images/GenoRegModels.svg"><img alt="ANOVA example" src="../_images/GenoRegModels.svg" style="width: 400px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 30 </span><span class="caption-text"><strong>Linear regression models fitted to the body weight vs. genome size to the Dragonfly (red) and Damselfly (blue) subsets of the data.</strong></span><a class="headerlink" href="#dragonfly-regression" title="Link to this image">#</a></p>
+<p><span class="caption-text"><strong>Linear regression models fitted to the body weight vs. genome size to the Dragonfly (red) and Damselfly (blue) subsets of the data.</strong></span><a class="headerlink" href="#dragonfly-regression" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -1064,7 +1062,7 @@ Thus you can see that the regression slope is proportional to the correlation co
 <figure class="align-default" id="regress-leverage">
 <a class="reference internal image-reference" href="../_images/Leverage.svg"><img alt="Leverage" src="../_images/Leverage.svg" style="width: 250px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 31 </span><span class="caption-text"><strong>Leverage of data points on slope of a regression.</strong> The points further away from the centroid in the x-axis direction have more leverage, and can therefore move the regression line up or down (dashed red lines).</span><a class="headerlink" href="#regress-leverage" title="Link to this image">#</a></p>
+<p><span class="caption-text"><strong>Leverage of data points on slope of a regression.</strong> The points further away from the centroid in the x-axis direction have more leverage, and can therefore move the regression line up or down (dashed red lines).</span><a class="headerlink" href="#regress-leverage" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -1116,24 +1114,6 @@ slope: -1.14, se=0.35).</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="t_F_tests.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Basic hypothesis testing: <span class="math notranslate nohighlight">\(t\)</span> and <span class="math notranslate nohighlight">\(F\)</span> tests</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="anova.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Linear Models: Analysis of variance</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
